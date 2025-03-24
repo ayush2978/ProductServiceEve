@@ -117,6 +117,7 @@ public class ProductTest {
     @Test
     @Transactional //Transaction is open and hence all the products will be fetched at the same time when fetching the category.
     void getProductsForCategory(){
+        // Adding comments to test the git changes.
         List<Category> categories = categoryRepository.findCategoryByIdIn(Arrays.asList(1L,2L));
         for (Category category:categories){
             System.out.println(category.getProducts().size());
