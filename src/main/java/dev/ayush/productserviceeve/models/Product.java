@@ -1,8 +1,6 @@
 package dev.ayush.productserviceeve.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +11,7 @@ public class Product extends BaseModel{
     private String title;
     private double price;
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE}) // Please save the category along with the product.
     private Category category;
     private String imageUrl;
 }
